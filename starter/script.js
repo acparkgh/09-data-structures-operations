@@ -6,7 +6,7 @@ const flights =
 
 // Data needed for first part of the section
 const restaurant = {
-  name: 'Classico Italiano',
+  restaurantName: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
@@ -16,7 +16,6 @@ const restaurant = {
       [ this.starterMenu[starterIndex], this.mainMenu[mainIndex] ]
     );
   },
-
   openingHours: {
     thu: {
       open: 12,
@@ -31,7 +30,51 @@ const restaurant = {
       close: 24,
     },
   },
+  // orderDelivery: function (obj) {
+  //   console.log(obj);
+  // }
+  orderDelivery: function ({ mainIndex, starterIndex, address: deliveryAddress, time: deliveryTime }) {
+    // console.log(this);
+    console.log(`Order Received: ${this.starterMenu[mainIndex]} and ${this.mainMenu[starterIndex]} will be delivered to ${deliveryAddress} at ${deliveryTime}.`)
+  }
 };
+
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+})
+
+const { restaurantName, openingHours, categories } = restaurant;
+console.log(restaurantName, categories, openingHours);
+
+const { restaurantName: restName, openingHours: hours, categories: tags } = restaurant;
+console.log(restName, tags, hours);
+
+const { fri: {open: openHours, close} } = openingHours;
+console.log(openHours, close);
+
+const { desserts = [], starterMenu: appertizer = [] } = restaurant;
+console.log(desserts, appertizer);
+
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 }
+console.log(a, b);
+console.log(obj);
+
+( {a, b} = obj );
+console.log(a, b);
+
+
+
+
+
+
+console.log(`----------------------------------------------------`);
+
+
 
 console.log(restaurant.categories);
 
