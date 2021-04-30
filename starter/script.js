@@ -33,10 +33,16 @@ const restaurant = {
   // orderDelivery: function (obj) {
   //   console.log(obj);
   // }
-  orderDelivery: function ({ mainIndex, starterIndex, address: deliveryAddress, time: deliveryTime }) {
+  orderDelivery: function ({ mainIndex,
+                             starterIndex,
+                             address: deliveryAddress,
+                             time: deliveryTime }) {
     // console.log(this);
     console.log(`Order Received: ${this.starterMenu[mainIndex]} and ${this.mainMenu[starterIndex]} will be delivered to ${deliveryAddress} at ${deliveryTime}.`)
-  }
+  },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here's your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
+  },
 };
 
 restaurant.orderDelivery({
@@ -67,12 +73,51 @@ console.log(obj);
 ( {a, b} = obj );
 console.log(a, b);
 
+console.log(`---------- Spread Operator ---------------------`);
 
+const arr = [7, 8, 9];
+const newArr = [5, 6, ...arr]
+const newNewArr = [...newArr, ...arr];
+console.log(newNewArr);
+console.log(...newNewArr);
 
+const newMenu = [ ...restaurant.mainMenu, 'Gnocci' ];
+console.log(newMenu);
+const mainMenuCopy1 = restaurant.mainMenu;
+console.log(mainMenuCopy1);
+const mainMenuCopy2 = [...restaurant.mainMenu];
+console.log(mainMenuCopy2);
+restaurant.mainMenu.push("Steak");
+console.log(restaurant.mainMenu);
+console.log(mainMenuCopy1);
+console.log(mainMenuCopy2);
 
+const fullMenu = [ ...restaurant.starterMenu, ...restaurant.mainMenu ];
+console.log(fullMenu);
 
+const str = 'Jonas';
+const letters = [...str, ' ', 's'];
+console.log(letters);
+
+// const pastaIngredients = [
+//   prompt('Let\'s make pasta! Ingredient 1?'),
+//   prompt('Let\'s make pasta! Ingredient 2?'),
+//   prompt('Let\'s make pasta! Ingredient 3?'),
+// ]
+
+// console.log(pastaIngredients);
+// console.log(...pastaIngredients);
+
+// restaurant.orderPasta(...pastaIngredients);
+
+const newRestaurant = { ['founding Year']: 1991, ...restaurant, founder: 'Guiseppe' }
+newRestaurant.restaurantName = 'Ristorante Roma';
+console.log(newRestaurant);
+console.log(restaurant);
 
 console.log(`----------------------------------------------------`);
+
+
 
 
 
