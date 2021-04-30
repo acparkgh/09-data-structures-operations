@@ -48,8 +48,22 @@ const restaurant = {
     console.log(mainIngredient);
     console.log(otherIngredients);
   }
-
 };
+
+restaurant.numberGuests = 0;
+console.log('No. of Guests:', restaurant.numberGuests);
+console.log(Boolean(restaurant.numberGuests));
+const numGuests1 = restaurant.numberGuests || 10;
+const numGuests2 = restaurant.numberGuests ?? 10;
+console.log('||:', numGuests1);
+console.log('&&:', numGuests2);
+
+console.log(Boolean(restaurant.orderPizza));
+
+console.log(3 || 'Jonas');
+console.log(0 || null || undefined);
+console.log(0 && 'Jonas' && undefined);
+console.log('Jonas' && 0 && undefined);
 
 restaurant.orderDelivery({
   time: '22:30',
