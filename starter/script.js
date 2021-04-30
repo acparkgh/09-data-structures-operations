@@ -43,6 +43,12 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here's your delicious pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  }
+
 };
 
 restaurant.orderDelivery({
@@ -115,8 +121,44 @@ newRestaurant.restaurantName = 'Ristorante Roma';
 console.log(newRestaurant);
 console.log(restaurant);
 
-console.log(`----------------------------------------------------`);
+console.log(`---------- Rest Operator -----------------------`);
 
+const arr3 = [1, 2, ...[3, 4]]
+console.log(arr3);
+const [aa, bb, ...others] = [1, 2, 3, 4, 5];
+console.log("aa:", aa, "bb:", bb, "others:", others);
+
+console.log(restaurant.mainMenu);
+console.log(restaurant.starterMenu);
+const [pizza, , , , pasta, ...foods] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(pizza, pasta, foods);
+
+console.log(restaurant.openingHours);
+const { sat: weekEnd, ...weekDays } = restaurant.openingHours;
+console.log(weekEnd, weekDays);
+console.log(weekDays.fri);
+
+const addNumbers = function (...severalNumbers) {
+  console.log(severalNumbers);
+  let sum = 0;
+  for ( let i = 0; i < severalNumbers.length; i++ ) {
+    sum += severalNumbers[i];
+  };
+  console.log(sum);
+  return sum;
+}
+
+console.log( addNumbers(1, 2, 3, 4, 5) );
+
+const xyz = [23, 5, 7];
+console.log(...xyz);
+console.log( addNumbers(...xyz) );
+console.log( addNumbers(23, 5, 7) );
+
+restaurant.orderPizza('BBQ Chicked', 'mushroom', 'green pepper', 'onion');
+
+
+console.log(`------------------------------------------------`);
 
 
 
