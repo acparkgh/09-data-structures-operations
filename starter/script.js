@@ -56,6 +56,27 @@ const restaurant = {
   }
 };
 
+console.log(restaurant.openingHours?.mon?.open);
+console.log(restaurant.openingHours?.fri?.open);
+
+const days = [ "mon", "tue", "wed", "thu", "fri", "sat", "sun" ];
+
+for (const day of days) {
+  const openingHour = restaurant.openingHours[day]?.open ?? "Closed!!!";
+  console.log(`On ${day}, we open at ${openingHour}`);
+}
+
+console.log(restaurant.order?.(0, 1) ?? "Method does not exist");
+console.log(restaurant?.orderPiaaz?.(0, 1) ?? "Method does not exist");
+console.log( Boolean(restaurant?.order?.(0, 1)) );
+
+// console.log(restaurant.orderPiaaz(0, 1) ?? "Method does not exist");
+  // Uncaught TypeError: restaurant.orderPiaaz is not a function
+
+const users = [ { name: "Jonas", email: "jonas@abc.com" } ];
+console.log(users[0]?.email ?? "User Does Not Exist!");
+console.log(users[1]?.name ?? "User does not exist!");
+
 restaurant.numberGuests = 0;
 console.log('No. of Guests:', restaurant.numberGuests);
 console.log(Boolean(restaurant.numberGuests));
