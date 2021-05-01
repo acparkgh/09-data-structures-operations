@@ -56,6 +56,31 @@ const restaurant = {
   }
 };
 
+const properties = Object.keys(openingHours);
+const values = Object.values(openingHours);
+const entries = Object.entries(openingHours);
+console.log(properties);
+console.log(values);
+console.log(entries);
+console.log(Object.keys(openingHours).length);
+
+let openStr = `We are open ${properties.length} days: `
+
+console.log(openingHours);
+for (const day of Object.keys(openingHours)) {
+  openStr += ` ${day},`;
+}
+
+for (const {open, close} of Object.values(openingHours)) {
+  console.log(open, close)
+}
+
+for (const [key, {open, close}] of Object.entries(openingHours)) {
+  console.log(`On ${key}, we open at ${open} and close at ${close}`);
+}
+
+console.log(openStr);
+
 console.log(restaurant.openingHours?.mon?.open);
 console.log(restaurant.openingHours?.fri?.open);
 
@@ -88,9 +113,10 @@ console.log('&&:', numGuests2);
 console.log(Boolean(restaurant.orderPizza));
 
 console.log(3 || 'Jonas');
-console.log(0 || null || undefined);
-console.log(0 && 'Jonas' && undefined);
-console.log('Jonas' && 0 && undefined);
+console.log(null || undefined || "" || 0 );
+console.log(null && 'Jonas' && undefined);
+console.log('Jonas' && null && undefined);
+console.log('Jonas' && 1 && "abc");
 
 restaurant.orderDelivery({
   time: '22:30',
