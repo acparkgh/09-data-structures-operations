@@ -1,47 +1,44 @@
 "use strict";
 
-const gameEvents = new Map([
-  [17, '⚽ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽ GOAL'],
-  [80, '⚽ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
-  
-console.log(`------------ task 1 ---------------`);
+const airline = "TAP Air Portugal";
+const plane = "A320";
 
-const values = gameEvents.values();
-const valuesArray = [...values];
-console.log(valuesArray);
-console.log(valuesArray[1]);
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log(plane[3]);
+console.log("B737"[2]);
 
-const events = [ ...new Set( [...gameEvents.values()] ) ];
-console.log(events);
+console.log(airline.length);
+console.log("B777".length);
 
-console.log(`------------ task 2 ---------------`);
+console.log(airline.indexOf("r"))
+console.log(airline.lastIndexOf("r"));
+console.log(airline.indexOf("Air"));
 
-gameEvents.delete(64);
-console.log(gameEvents);
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+console.log(airline.slice(0, airline.indexOf(" ")));
+console.log(airline.slice(airline.lastIndexOf("P")));
+console.log(airline.slice(airline.lastIndexOf(" ") + 1));
 
-console.log(`------------ task 3 ---------------`);
+console.log(airline.slice(-8));
+console.log(airline.slice(1, -1));
 
-const gameEventCount = gameEvents.size;
-console.log(`An event happened, on average, every ${90 / gameEventCount } minutes`);
 
-console.log(`------------ task 4 ---------------`);
-
-for (const [minute, event] of gameEvents) {
-  // minute < 45 ?
-  //   console.log(`[FIRST HALF]${minute}: ${event}`)
-  //    :
-  //   console.log(`[SECOND HALF]${minute}: ${event}`)
-
-  const half = ( minute < 45 ? "FIRST" : "SECOND" );
-  console.log(`[${half} HALF] ${minute}: ${event}`);
+const checkMiddleSeat = function (seat) {
+  const seatPosition = seat.slice(-1);
+  const middleSeat = "You got middle seat 🥺";
+  const isleSeat = "You got lucky!!!"
+  return (
+    seatPosition === "B" || seatPosition === "E" ? middleSeat : isleSeat
+  );
 };
+
+console.log(checkMiddleSeat("11B"));
+console.log(checkMiddleSeat("11E"));
+console.log(checkMiddleSeat("11A"));
+
+console.log(new String("Jonas"));
+console.log(typeof new String("Jonas"));
+console.log(typeof new String("Jonas").slice(-1));
