@@ -368,3 +368,36 @@ console.log(title);
 
 rest.set(title, "Heading");
 console.log(rest);
+
+const question = new Map([
+  ["question", "What is the best programming language?"],
+  [1, "C"],
+  [2, "Java"],
+  [3, "JavaScript"],
+  ["correct", 3],
+  [true, "Correct!"],
+  [false, "Try Again!"],
+]);
+console.log(question);
+
+console.log(openingHours);
+console.log(Object.entries(openingHours));
+
+const openingHoursMap = new Map(Object.entries(openingHours));
+console.log(openingHoursMap);
+
+// console.log(question.get("question"));
+// for (const [key, value] of question) {
+//   // if (typeof key !== "number") continue;
+//   if (typeof key === "number") {
+//     console.log(`Answer ${key}: ${value}`);
+//   }
+// };
+// const userAnswer = Number( prompt("Choose 1, 2 or 3:", "1, 2, or 3") );
+// console.log( question.get( userAnswer === question.get("correct") ) );
+
+console.log(question.entries());
+console.log([...question.keys()]);
+console.log(question.values());
+
+console.log([...question]);
