@@ -78,7 +78,52 @@ console.log(airplane.includes("A320"));
 console.log(airplane.startsWith("A320"));
 console.log(airplane.endsWith("neo"));
 
+const strSample = "a+very+nice+string";
+console.log(strSample);
+console.log(strSample.split("+"));
+console.log("Jonas Schmedtmann".split(" "));
+const [firstName, lastName] = "Jonas Schmedtmann".split(" ");
+console.log(firstName);
+console.log(lastName);
 
+const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+console.log(newName);
 
+const capitalizeName = function (name) {
+  const splitName = name.toLowerCase().split(" ");
+  const nameArray = [];
+  for (const eachName of splitName) {
+    // nameArray.push(eachName[0].toUpperCase() + eachName.slice(1));
+    nameArray.push( eachName.replace( eachName[0], eachName[0].toUpperCase() ) );
+  }
+  return (nameArray.join(" "));
+}
 
+console.log(capitalizeName("jonAs schmEDtmann"));
+console.log(capitalizeName("jeSSica anN SMith DAVIS"));
 
+const message = "Go to gate 23!";
+console.log(message.padStart(25, "+"));
+console.log(message.padEnd(25, "+"));
+console.log(message.padStart(25, "+").padEnd(39, "+"));
+
+const maskCreditCard = function (number) {
+  const str = String(number);
+  const lastFourDigits = str.slice(-4);
+  return (
+    lastFourDigits.padStart(str.length, "*")
+  );
+}
+
+console.log(maskCreditCard(462465554311584));
+console.log(maskCreditCard("518976876334483345"));
+console.log(maskCreditCard(1234567890));
+
+const warningMessage = "Bad weather... All Departures Delayed...";
+console.log(`${warningMessage} \n`.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`${warningMessage.toUpperCase()}\nThere are ${n} planes waiting in line ${`🛩`.repeat(n)}`);
+}
+
+planesInLine(5);
