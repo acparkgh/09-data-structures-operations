@@ -127,3 +127,21 @@ const planesInLine = function (n) {
 }
 
 planesInLine(5);
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+const convertText = function () {
+  const text = document.querySelector("textarea").value;
+  const correctedTexts = text.toLowerCase().split("\n");
+  
+  for (const [index, word] of correctedTexts.entries()) {
+    const [firstWord, secondWord] = word.trim().split("_");
+    const camelCasedWord = `${firstWord}${secondWord[0].toUpperCase() + secondWord.slice(1)}`;
+    console.log(`${camelCasedWord.padEnd(20, " ")}${"✅".repeat(index + 1)}`);
+  };
+  
+};
+  
+document.querySelector("button").addEventListener("click", convertText);
+
